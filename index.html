@@ -109,7 +109,12 @@
       object-fit: contain;
     }
     .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:36px;
+      flex-wrap:nowrap;
+    }
     .nav-links a {
       font-size: 0.88rem; font-weight: 500;
       color: rgba(255,255,255,0.75);
@@ -406,27 +411,238 @@
     .footer-logo span { color: var(--gold); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero-visual { display: none; }
-      .about-inner { grid-template-columns: 1fr; gap: 60px; }
-      .about-badge { right: 16px; bottom: -20px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .booking-inner { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .footer-brand { grid-column: 1 / -1; }
-      .nav-links .nav-pages { display: none; }
-      .hamburger { display: block; }
-      .hero-stats { margin-top: 32px; }
-    }
-    @media (max-width: 560px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .hero-stats { grid-template-columns: 1fr 1fr; }
-      .hero-stats .stat-box:last-child { grid-column: 1 / -1; }
-      .about-pillars { grid-template-columns: 1fr; }
-    }
+    /* ─────────────────────────────────────────────
+   RESPONSIVE FIXES
+───────────────────────────────────────────── */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+
+  .container{
+    width: min(94%, 1200px);
+  }
+
+  .hero-inner{
+    gap: 40px;
+  }
+
+  .hero-title{
+    font-size: clamp(2.4rem, 5vw, 4rem);
+  }
+
+  .nav-links{
+    gap: 24px;
+  }
+
+  .logo-img{
+    height: 78px;
+  }
+
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+
+  section{
+    padding: 80px 0;
+  }
+
+  .hero-inner,
+  .about-inner,
+  .booking-inner{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual{
+    display: none;
+  }
+
+  .services-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand{
+    grid-column: 1 / -1;
+  }
+
+  .nav-pages{
+    display: none !important;
+  }
+
+  .hamburger{
+    display: block;
+  }
+
+  .nav-links .btn{
+    display: none;
+  }
+
+  .hero{
+    padding-top: 140px;
+  }
+
+  .hero-stats{
+    margin-top: 32px;
+  }
+
+  .logo-img{
+    height: 72px;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  html,body{
+    overflow-x: hidden;
+  }
+
+  .container{
+    width: 92%;
+  }
+
+  #hero{
+    min-height: auto;
+    padding: 140px 0 70px;
+  }
+
+  .hero-kicker{
+    font-size: 0.72rem;
+    line-height: 1.6;
+  }
+
+  .hero-title{
+    font-size: 3rem;
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+
+  .hero-sub{
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .hero-actions{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-stats{
+    grid-template-columns: 1fr 1fr;
+    border-radius: 14px;
+  }
+
+  .hero-stats .stat-box:last-child{
+    grid-column: 1 / -1;
+  }
+
+  .stat-box{
+    padding: 24px 12px;
+  }
+
+  .stat-num{
+    font-size: 2rem;
+  }
+
+  .services-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .about-pillars{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-head{
+    margin-bottom: 48px;
+  }
+
+  .section-head h2{
+    font-size: 2.2rem;
+  }
+
+  .about-badge{
+    right: 12px;
+    bottom: -18px;
+    padding: 18px 20px;
+  }
+
+  .about-badge .num{
+    font-size: 2rem;
+  }
+
+  .logo-img{
+    height: 62px;
+  }
+
+  .nav-inner{
+    padding: 10px 0;
+  }
+
+  .mobile-menu{
+    top: 82px;
+    padding: 32px 24px;
+  }
+
+  .mobile-menu a{
+    font-size: 1.1rem;
+  }
+
+  iframe{
+    height: 620px !important;
+  }
+
+}
+
+/* Small Phones */
+@media (max-width: 400px) {
+
+  .hero-title{
+    font-size: 2.5rem;
+  }
+
+  .hero-sub{
+    font-size: 0.95rem;
+  }
+
+  .btn{
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+
+  .stat-num{
+    font-size: 1.7rem;
+  }
+
+  .logo-img{
+    height: 54px;
+  }
+
+}
   </style>
 </head>
 <body>
@@ -443,7 +659,6 @@
       <div class="nav-pages" style="display:flex;gap:36px;align-items:center;">
         <a href="#services">Practices</a>
         <a href="#about">About</a>
-        <a href="#booking">Book</a>
         <a href="#contact">Contact</a>
       </div>
       <a href="#booking" class="btn btn-gold" style="padding:10px 22px;font-size:.85rem;">Book Consultation</a>
@@ -456,11 +671,10 @@
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services"  onclick="closeMobile()">Our Practices</a>
-  <a href="#about"     onclick="closeMobile()">About Us</a>
-  <a href="#booking"   onclick="closeMobile()">Book Consultation</a>
-  <a href="#contact"   onclick="closeMobile()">Contact</a>
-  <a href="tel:+919324691520" class="btn btn-gold" style="margin-top:8px;">📞 Call Now</a>
+  <a href="#services"  onclick="closeMobile()">PRCTICES</a>
+  <a href="#about"     onclick="closeMobile()">ABOUT</a>
+  <a href="#contact"   onclick="closeMobile()">CONTACT</a>
+  <a href="#booking" class="btn btn-gold" style="margin-top:8px;" onclick="closeMobile()">BOOK CONSULTATION</a>
 </div>
 
 
